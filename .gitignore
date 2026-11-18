@@ -1,0 +1,10 @@
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+user_data/
+autosave.json
+verification/*.png
+verification/*.log
+.DS_Store
+*.mp4
