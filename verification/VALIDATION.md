@@ -2,11 +2,13 @@
 
 18 November 2026. Windows, Python 3.12.14, Panda3D 1.10.16.
 
-- 26 unit tests passed, including the original algorithm, navigation and camera tests, the new MDP tests, four narration checks and three door-without-terminal regression checks.
+- 28 unit tests passed, including algorithm, navigation and camera tests, MDP tests, six narration checks and three door-without-terminal regression checks.
 - All 24 combinations of three scenarios, four floors and two doors were exercised without first visiting the terminal. No exceptions occurred. A route calculation that closes the current door now shows an unavailable-exit message instead of recording a missing route length.
 - All four floors in all three training scenarios completed using ordinary movement ticks. Path samples were checked against actual game collisions.
 - The live floor-2 exit closure selected a new available exit. Its state survived a checkpoint round trip.
-- Original narration played through a valid Windows Panda3D audio manager. A new Windows speech message finished successfully. All three exact original closing cards were rendered in the trainer, and Enter opened the results.
+- All 66 approved synthetic narration files loaded as ready sounds in a valid Windows Panda3D audio manager. The welcome played, and its 6.379-second duration fits the eight-second opening cue interval. Unknown future lines stay subtitled instead of switching voices. The old recording/system-speech compatibility checks also pass.
+- All 66 final clips underwent automatic English speech-recognition screening. Flagged or ambiguous cues were revised and regenerated. Final screening records have no unresolved threshold flags; this is an automated content check, not a human listening study. Amir approved the voice preview.
+- All three exact original closing cards were rendered in the trainer, and Enter opened the results.
 - Invalid training checkpoint data left the current session unchanged.
 - The preserved original quiz campaign passed its four-floor success, three-error failure and checkpoint restoration checks.
 - The standalone Windows build completed its resource and route self-check on all four floors, with exit code zero.

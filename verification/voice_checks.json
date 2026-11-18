@@ -1,0 +1,8 @@
+{
+  "passed": true,
+  "static_messages": 64,
+  "dynamic_patterns": 2,
+  "voice_files": 66,
+  "panda_audio_ready": true,
+  "welcome_under_8_s": true
+}
