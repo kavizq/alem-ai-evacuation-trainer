@@ -1,0 +1,168 @@
+{
+  "passed": true,
+  "records": [
+    {
+      "scenario": "smoke",
+      "floor": 4,
+      "lengths_m": {
+        "LEFT": 25.0,
+        "RIGHT": 27.0
+      },
+      "recommendation": "RIGHT",
+      "posterior": 0.5,
+      "baseline": "LEFT",
+      "baseline_risk": 0.5,
+      "selected_risk": 0.0,
+      "iterations": 4
+    },
+    {
+      "scenario": "smoke",
+      "floor": 3,
+      "lengths_m": {
+        "LEFT": 25.0,
+        "RIGHT": 27.0
+      },
+      "recommendation": "RIGHT",
+      "posterior": 0.058823529411764684,
+      "baseline": "LEFT",
+      "baseline_risk": 0.058823529411764684,
+      "selected_risk": 0.0,
+      "iterations": 4
+    },
+    {
+      "scenario": "smoke",
+      "floor": 2,
+      "lengths_m": {
+        "LEFT": 25.0
+      },
+      "recommendation": "LEFT",
+      "posterior": 0.5,
+      "baseline": "LEFT",
+      "baseline_risk": 0.5,
+      "selected_risk": 0.5,
+      "iterations": 69
+    },
+    {
+      "scenario": "smoke",
+      "floor": 1,
+      "lengths_m": {
+        "LEFT": 41.0,
+        "RIGHT": 43.0
+      },
+      "recommendation": "RIGHT",
+      "posterior": 0.5,
+      "baseline": "LEFT",
+      "baseline_risk": 0.5,
+      "selected_risk": 0.0,
+      "iterations": 4
+    },
+    {
+      "scenario": "clear",
+      "floor": 4,
+      "lengths_m": {
+        "LEFT": 25.0,
+        "RIGHT": 27.0
+      },
+      "recommendation": "RIGHT",
+      "posterior": 0.058823529411764684,
+      "baseline": "LEFT",
+      "baseline_risk": 0.058823529411764684,
+      "selected_risk": 0.0,
+      "iterations": 4
+    },
+    {
+      "scenario": "clear",
+      "floor": 3,
+      "lengths_m": {
+        "LEFT": 25.0,
+        "RIGHT": 27.0
+      },
+      "recommendation": "RIGHT",
+      "posterior": 0.058823529411764684,
+      "baseline": "LEFT",
+      "baseline_risk": 0.058823529411764684,
+      "selected_risk": 0.0,
+      "iterations": 4
+    },
+    {
+      "scenario": "clear",
+      "floor": 2,
+      "lengths_m": {
+        "LEFT": 25.0,
+        "RIGHT": 27.0
+      },
+      "recommendation": "RIGHT",
+      "posterior": 0.058823529411764684,
+      "baseline": "LEFT",
+      "baseline_risk": 0.058823529411764684,
+      "selected_risk": 0.0,
+      "iterations": 4
+    },
+    {
+      "scenario": "clear",
+      "floor": 1,
+      "lengths_m": {
+        "LEFT": 41.0,
+        "RIGHT": 43.0
+      },
+      "recommendation": "RIGHT",
+      "posterior": 0.058823529411764684,
+      "baseline": "LEFT",
+      "baseline_risk": 0.058823529411764684,
+      "selected_risk": 0.0,
+      "iterations": 4
+    },
+    {
+      "scenario": "blocked",
+      "floor": 4,
+      "lengths_m": {
+        "RIGHT": 27.0
+      },
+      "recommendation": "RIGHT",
+      "posterior": 0.5,
+      "baseline": "RIGHT",
+      "baseline_risk": 0.0,
+      "selected_risk": 0.0,
+      "iterations": 3
+    },
+    {
+      "scenario": "blocked",
+      "floor": 3,
+      "lengths_m": {
+        "RIGHT": 27.0
+      },
+      "recommendation": "RIGHT",
+      "posterior": 0.5,
+      "baseline": "RIGHT",
+      "baseline_risk": 0.0,
+      "selected_risk": 0.0,
+      "iterations": 3
+    },
+    {
+      "scenario": "blocked",
+      "floor": 2,
+      "lengths_m": {
+        "RIGHT": 27.0
+      },
+      "recommendation": "RIGHT",
+      "posterior": 0.5,
+      "baseline": "RIGHT",
+      "baseline_risk": 0.0,
+      "selected_risk": 0.0,
+      "iterations": 3
+    },
+    {
+      "scenario": "blocked",
+      "floor": 1,
+      "lengths_m": {
+        "RIGHT": 43.0
+      },
+      "recommendation": "RIGHT",
+      "posterior": 0.5,
+      "baseline": "RIGHT",
+      "baseline_risk": 0.0,
+      "selected_risk": 0.0,
+      "iterations": 3
+    }
+  ]
+}
