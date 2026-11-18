@@ -1,0 +1,275 @@
+{
+  "version": 1,
+  "approved": true,
+  "voice": "Amir, synthetic F5-TTS v1 Base narration",
+  "lines": {
+    "A star accepts a set of forbidden cells. A decision to detour excludes the suspect corridor. Check the evidence, choose the action, then calculate a traversable route.": {
+      "file": "f5_14d774fff922e2f8c2d8.wav",
+      "spoken": "A star accepts a set of forbidden cells. A decision to detour excludes the suspect corridor. Check the evidence, choose the action, then calculate a traversable route."
+    },
+    "A star compares distance travelled with an estimate to the goal. Its heuristic must never overestimate.": {
+      "file": "f5_97fefbb219b58c38c22c.wav",
+      "spoken": "A star compares distance travelled with an estimate to the goal. Its heuristic must never overestimate."
+    },
+    "A star uses f equals g plus h. For four-direction movement, Manhattan distance counts horizontal and vertical separation. Inspect the map. S is your original classroom position.": {
+      "file": "f5_643699cd8a9df7a38f67.wav",
+      "spoken": "A star uses f equals g plus h. For four-direction movement, Manhattan distance counts horizontal and vertical separation. Inspect the map. S is your original classroom position."
+    },
+    "Add the distance travelled and the estimated remaining distance for each node.": {
+      "file": "f5_65d43278da044af4dedd.wav",
+      "spoken": "Add the distance travelled and the estimated remaining distance for each node."
+    },
+    "All exits are locked after three wrong decisions. Press R to try again.": {
+      "file": "f5_2385de57b5d17393838d.wav",
+      "spoken": "All exits are locked after three wrong decisions. Press R to try again."
+    },
+    "An alert can occur in a blocked corridor or in a clear corridor. Include both cases.": {
+      "file": "f5_2e3b8a45b41a79bfdf0e.wav",
+      "spoken": "An alert can occur in a blocked corridor or in a clear corridor. Include both cases."
+    },
+    "Bayes: 50% blocked. MDP: detour. A star: 7 grid moves. Follow the safe route to an exit.": {
+      "file": "f5_868b37239e1001708950.wav",
+      "spoken": "Bayes' rule gives a fifty percent blockage probability. The Markov decision model chooses a detour. A star finds seven grid moves. Follow the route to an exit."
+    },
+    "Bayesian inference updates a prior belief using evidence. Expected utility weighs the possible consequences of each action.": {
+      "file": "f5_fb544025392e9aa3b320.wav",
+      "spoken": "Bayesian inference updates a prior belief using evidence. Expected utility weighs the possible consequences of each action."
+    },
+    "Before the alert, twenty percent of corridors were blocked. Bayes rule divides alert-and-blocked probability by the total probability of an alert. Include false alarms.": {
+      "file": "f5_e2c2c6f4fb7258ce65fa.wav",
+      "spoken": "Before the alert, twenty percent of corridors were blocked. Bayes rule divides alert-and-blocked probability by the total probability of an alert. Include false alarms."
+    },
+    "Calculation accepted. Continue with the next decision.": {
+      "file": "f5_9cde004779ee90e3cc60.wav",
+      "spoken": "Calculation accepted. Continue with the next decision."
+    },
+    "Checkpoint restored. Continue to the terminal or stair gate.": {
+      "file": "f5_2a785cee9b04564b830c.wav",
+      "spoken": "Checkpoint restored. Continue to the terminal or stair gate."
+    },
+    "Choose a route first. Then U demonstrates an exit becoming unavailable.": {
+      "file": "f5_66d6a37f1b01deec14e3.wav",
+      "spoken": "Choose a route first. Then the U key demonstrates an exit becoming unavailable."
+    },
+    "Compare alert-and-blocked with all ways an alert can occur.": {
+      "file": "f5_eeb54a5320db99b11a28.wav",
+      "spoken": "Compare true alerts from blocked corridors with the total number of alerts."
+    },
+    "Consider how evidence changes a belief and how a decision constrains a route.": {
+      "file": "f5_91cb49e464cd8a22e49c.wav",
+      "spoken": "Consider how evidence changes a belief and how a decision constrains a route."
+    },
+    "Decision accepted. Movement speed increased. Follow the STAIRS direction above, then press E at a green gate.": {
+      "file": "f5_59a3ae4f94e9daee5055.wav",
+      "spoken": "Decision accepted. Movement speed increased. Follow the STAIRS direction above, then press the E key at a green gate."
+    },
+    "Descending the interior staircase. Your progress is saved on the next floor.": {
+      "file": "f5_d95b85f4057e036b3fc2.wav",
+      "spoken": "Descending the interior staircase. Your progress is saved on the next floor."
+    },
+    "E inspects amber stations and the cyan terminal. Follow the cyan floor route. H explains the next step.": {
+      "file": "f5_a5a3abd6476df9c211d4.wav",
+      "spoken": "Press the E key to inspect the amber stations or cyan terminal. Follow the cyan line on the floor. Press the H key for help."
+    },
+    "Exercise alarm: possible smoke. Elevators are offline. Lead the group from floor four to the plaza using the stairs. At each cyan terminal, compare routes and choose an exit.": {
+      "file": "f5_8ada0beec358dc839c06.wav",
+      "spoken": "Exercise alarm: possible smoke. Elevators are offline. Lead the group from floor four to the plaza using the stairs. At each cyan terminal, compare routes and choose an exit."
+    },
+    "Exercise update: the planned exit is unavailable. ADEKA excluded it and recalculated the route. Follow the new cyan guide.": {
+      "file": "f5_f332b54a4b24640b1887.wav",
+      "spoken": "Exercise update: the planned exit is unavailable. ADEKA excluded it and recalculated the route. Follow the new cyan guide."
+    },
+    "Explore the floor. The cyan terminal controls the stair gate.": {
+      "file": "f5_20dbfd5d21fd4ccdda9b.wav",
+      "spoken": "Explore the floor. The cyan terminal controls the stair gate."
+    },
+    "Find the cyan terminal, press E, then 1 to accept ADEKA. Follow the cyan floor line to the chosen stairs. On floor 2, U demonstrates replanning.": {
+      "file": "f5_407d45cf99eb433016aa.wav",
+      "spoken": "At the cyan terminal, press the E key and choose option one to follow the recommendation. Follow the cyan line. On the second floor, press the letter U to update the route."
+    },
+    "Floor 1. Glass atrium. Inspect the terminal.": {
+      "file": "f5_0a23615e3ba397d73e9c.wav",
+      "spoken": "You're now on the first floor, in the glass atrium. Please check the terminal."
+    },
+    "Floor 2. Computer workspace. Inspect the terminal.": {
+      "file": "f5_9a9430ce682c4908402a.wav",
+      "spoken": "You're now on the second floor, in the computer workspace. Please check the terminal."
+    },
+    "Floor 3. Computer coworking. Inspect the terminal.": {
+      "file": "f5_3da2c16e29b2947504a6.wav",
+      "spoken": "You're now on the third floor, in the computer coworking area. Please check the terminal."
+    },
+    "Floor 4. Qairu classroom. Inspect the terminal.": {
+      "file": "f5_4303b651378bfc52866d.wav",
+      "spoken": "You're now on the fourth floor, in the classroom. Please check the terminal."
+    },
+    "Inspect both amber evidence stations first. Their locations are marked on the map.": {
+      "file": "f5_b094e71bf665462648d0.wav",
+      "spoken": "Inspect both amber evidence stations first. Their locations are marked on the map."
+    },
+    "Known obstacles are gray. Green cells are exits. Each move costs one. Count edges between cells, not the cells themselves. Both exits are valid goals.": {
+      "file": "f5_cdcb16275077061868db.wav",
+      "spoken": "Known obstacles are gray. Green cells are exits. Each move costs one. Count edges between cells, not the cells themselves. Both exits are valid goals."
+    },
+    "Most probability is now assigned to the clear state. Recalculate both expected rewards.": {
+      "file": "f5_e9d3236c20eed32be878.wav",
+      "spoken": "Most probability is now assigned to the clear state. Recalculate both expected rewards."
+    },
+    "Multiply each reward by one half, then add the two weighted rewards.": {
+      "file": "f5_265be0bc99e8972fc18e.wav",
+      "spoken": "Multiply each reward by one half, then add the two weighted rewards."
+    },
+    "New training exercise. SPACE begins. F5 changes the scenario.": {
+      "file": "f5_4cde30d3c12905f84418.wav",
+      "spoken": "New training exercise. Space begins. F five changes the scenario."
+    },
+    "No route available. Move back into the hall and rescan.": {
+      "file": "f5_5388f01e68a5f4ca3d1c.wav",
+      "spoken": "No route available. Move back into the hall and rescan."
+    },
+    "No traversable route. Stay in the hall and ask the exercise instructor for help.": {
+      "file": "f5_0e08b8d70820fc72ee7a.wav",
+      "spoken": "No traversable route. Stay in the hall and ask the exercise instructor for help."
+    },
+    "No valid checkpoint is available.": {
+      "file": "f5_8ea9fdcb60ccdb3a77c2.wav",
+      "spoken": "No checkpoint can be loaded right now."
+    },
+    "No valid training checkpoint. Your current session is unchanged.": {
+      "file": "f5_b8e05037dffaff9443e5.wav",
+      "spoken": "No valid training checkpoint. Your current session is unchanged."
+    },
+    "Only one exit is available. Choose 1 or close the panel.": {
+      "file": "f5_373eb5cf58218d39bacb.wav",
+      "spoken": "Only one exit is available. Choose one or close the panel."
+    },
+    "Route board: both stairs lead down. An unavailable exit is excluded. Use E at the cyan terminal to compare the routes.": {
+      "file": "f5_5d89a4be89239abfb05c.wav",
+      "spoken": "Route board: both stairs lead down. An unavailable exit is excluded. Use the E key at the cyan terminal to compare the routes."
+    },
+    "Sensor report: ALERT. Sensitivity 80%, false-alarm rate 20%. The report is uncertain.": {
+      "file": "f5_045afcc08e003b2ad029.wav",
+      "spoken": "Sensor report: ALERT. Sensitivity eighty percent, false-alarm rate twenty percent. The report is uncertain."
+    },
+    "Sensor report: NO ALERT. Sensitivity 80%, false-alarm rate 20%. The report is uncertain.": {
+      "file": "f5_460680a3acf1f443bd58.wav",
+      "spoken": "Sensor report: NO ALERT. Sensitivity eighty percent, false-alarm rate twenty percent. The report is uncertain."
+    },
+    "Separate a model-based decision from certainty about the real world.": {
+      "file": "f5_58c0f59b6c933f8a888c.wav",
+      "spoken": "Separate a model-based decision from certainty about the real world."
+    },
+    "Students have reached the atrium. The sensor still reports an alert. Your belief and reward model must inform the final route constraints.": {
+      "file": "f5_5c07ce4d8b521e917bd5.wav",
+      "spoken": "Students have reached the atrium. The sensor still reports an alert. Your belief and reward model must inform the final route constraints."
+    },
+    "Technical malfunction detected. Please remain calm. The elevators are blocked.": {
+      "file": "f5_c6fd3e13d8e48d00d8ee.wav",
+      "spoken": "Technical malfunction detected. Please remain calm. The elevators are blocked."
+    },
+    "Technical malfunction. Elevators are blocked. Inspect both amber stations before using the cyan terminal.": {
+      "file": "f5_96afe91c65804f697919.wav",
+      "spoken": "Technical malfunction. Elevators are blocked. Inspect both amber stations before using the cyan terminal."
+    },
+    "That decision increased the security lock level. Reconsider the evidence.": {
+      "file": "f5_a7bf319734579d455bea.wav",
+      "spoken": "That decision increased the security lock level. Reconsider the evidence."
+    },
+    "The action determines which uncertain corridor should be excluded from the route.": {
+      "file": "f5_4dbcc5da744a526c0f0f.wav",
+      "spoken": "The action determines which uncertain corridor should be excluded from the route."
+    },
+    "The checkpoint could not be saved. You can continue this session.": {
+      "file": "f5_c1ab7eaa4827770c898c.wav",
+      "spoken": "The checkpoint could not be saved. You can continue this session."
+    },
+    "The decision is already recorded. Continue to a green gate.": {
+      "file": "f5_bdcf2e7fff4cdda5d530.wav",
+      "spoken": "The decision is already recorded. Continue to a green gate."
+    },
+    "The group is descending the stairs. A new floor brings a new sensor report.": {
+      "file": "f5_7c1b6e23f0d2b46900f5.wav",
+      "spoken": "The group is descending the stairs. A new floor brings a new sensor report."
+    },
+    "The previous sensor alert produced a blockage posterior of fifty percent. Multiply each outcome reward by its probability. Choose the action with the larger expected total.": {
+      "file": "f5_9ccbdfd9666740cf3325.wav",
+      "spoken": "The previous sensor alert produced a blockage posterior of fifty percent. Multiply each outcome reward by its probability. Choose the action with the larger expected total."
+    },
+    "The sensor calibration reports sensitivity of eighty percent and a false alarm rate of twenty percent. An alert is evidence, not certainty.": {
+      "file": "f5_b039b98eeaeebd5e6a58.wav",
+      "spoken": "The sensor calibration reports sensitivity of eighty percent and a false alarm rate of twenty percent. An alert is evidence, not certainty."
+    },
+    "The stair gate needs a decision from the terminal.": {
+      "file": "f5_6ad45deab024ef9fd542.wav",
+      "spoken": "The stair gate needs a decision from the terminal."
+    },
+    "There is no current route for this exit. Press U to recalculate or inspect the cyan terminal.": {
+      "file": "f5_72eac04ba2e519f456f4.wav",
+      "spoken": "There is no current route for this exit. Press the U key to recalculate or inspect the cyan terminal."
+    },
+    "This classroom model has a one-step horizon. Proceed rewards ten when clear and minus twenty when blocked. Detour rewards three in either state.": {
+      "file": "f5_c315df8435ca34afe1ce.wav",
+      "spoken": "This classroom model has a one-step horizon. Proceed gives ten points when clear. A blocked corridor gives minus twenty. Detour gives three points in either state."
+    },
+    "This exit has become unavailable. Check the cyan terminal or press U to find another route.": {
+      "file": "f5_7896fc55b13b1909ef96.wav",
+      "spoken": "This exit has become unavailable. Check the cyan terminal or press the U key to find another route."
+    },
+    "This exit is unavailable in the exercise. Press U to calculate a new route from your current position.": {
+      "file": "f5_adddf3ba5a480687dd79.wav",
+      "spoken": "This exit is unavailable in the exercise. Press the U key to calculate a new route from your current position."
+    },
+    "This run has ended. Press R to start again.": {
+      "file": "f5_cddb7faf945df8d01094.wav",
+      "spoken": "This run has ended. Press R to start again."
+    },
+    "Trace around the forbidden cell. A changed route need not be longer.": {
+      "file": "f5_0567a2d15ca219ec7ae7.wav",
+      "spoken": "Trace around the forbidden cell. A changed route need not be longer."
+    },
+    "Training checkpoint restored. Continue along the cyan route.": {
+      "file": "f5_6852461d4a72fe26d71c.wav",
+      "spoken": "Training checkpoint restored. Continue along the cyan route."
+    },
+    "Training continues. Recheck the route at the terminal.": {
+      "file": "f5_8168fd9adfa4752cc4e5.wav",
+      "spoken": "Training continues. Recheck the route at the terminal."
+    },
+    "Use f = g + h. Count moves, including the last move into an exit.": {
+      "file": "f5_f2df8fd2aa8cc10f9528.wav",
+      "spoken": "Use f equals g plus h. Count moves, including the last move into an exit."
+    },
+    "Use the complements of sensitivity and false alarm probability for a no-alert observation.": {
+      "file": "f5_62502efc634448ac8e1d.wav",
+      "spoken": "With no alert, use one minus the sensitivity and one minus the false alarm rate."
+    },
+    "Weight each reward by its state probability, then add.": {
+      "file": "f5_b8d26e9ab11554188d2a.wav",
+      "spoken": "Weight each reward by its state probability, then add."
+    },
+    "Welcome to Qairu. Today we connect A star search, Bayesian inference and expected utility. Press W A S D or Space to skip the lecture and move.": {
+      "file": "f5_f7884a63ee3cc9a77385.wav",
+      "spoken": "Welcome to Qairu. Let's explore route planning, probability, and decision making. Press Space to begin."
+    },
+    "You and the students escaped. Look back at the glass sphere. Press R to replay.": {
+      "file": "f5_f99dcdb9f028e2e1f7b3.wav",
+      "spoken": "You and the students escaped. Look back at the glass sphere. Press R to replay."
+    },
+    "You entered the sensor zone. This records a training risk event. Consider the alternative route.": {
+      "file": "f5_136910173fe6c56658a2.wav",
+      "spoken": "You've entered the area marked by the sensor. That's recorded as a training risk event. Consider the other route."
+    }
+  },
+  "patterns": [
+    {
+      "pattern": "Left route selected, [0-9]+ m\\. Modeled blockage risk [0-9]+%\\. Follow the cyan guide\\. U checks for a route update\\.",
+      "file": "f5_804fac073c22bf6da016.wav",
+      "spoken": "Left route selected. Check the displayed distance and risk, then follow the cyan line. Press the U key to check for an update."
+    },
+    {
+      "pattern": "Right route selected, [0-9]+ m\\. Modeled blockage risk [0-9]+%\\. Follow the cyan guide\\. U checks for a route update\\.",
+      "file": "f5_2acac3021a3fecd94504.wav",
+      "spoken": "Right route selected. Check the displayed distance and risk, then follow the cyan line. Press the U key to check for an update."
+    }
+  ]
+}
