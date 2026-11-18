@@ -8,7 +8,9 @@ Prepared: 18 November 2026
 
 We used OpenAI ChatGPT and Codex to discuss the project direction, inspect the supplied baseline, and prepare an AI-assisted revision. Codex generated substantial portions of the new training controller, the sequential MDP and value iteration implementation, automated checks, launch support, and draft submission materials. It also helped diagnose compatibility issues and review generated screenshots. The AI algorithms inside the application execute locally and do not call a language-model service.
 
-The supplied baseline was created by Adilzhan, as reported by Amir. This declaration does not infer whether or how AI was used during that earlier development; Adilzhan should add his own disclosure for the baseline before submission.
+Amir supplied a voice reference and approved a synthetic preview. Codex used F5-TTS v1 Base with Vocos to generate local narration assets. The game plays those files without running a speech model. Voice/model attribution is in audio/adeka_f5/CREDITS.txt.
+
+Adilzhan created the baseline, as reported by Amir. Adilzhan should add his own baseline AI-use disclosure before submission.
 
 ## Verification and responsibility
 
