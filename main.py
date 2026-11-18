@@ -5,6 +5,7 @@ import faulthandler
 import sys
 import json
 import traceback
+import wave
 from panda3d.core import loadPrcFileData
 
 
@@ -44,7 +45,20 @@ def main():
                 assert all(game.can_walk(*p) for p in game.training_routes[game.selected_side])
                 results.append({'floor':floor,'route':game.selected_side})
             for _ in range(3):game.graphicsEngine.renderFrame()
-            (folder/'package_check.json').write_text(json.dumps({'passed':True,'floors':results},indent=2),encoding='utf-8')
+            from speech import _approved_voice_bank, _recording_path
+            bank=_approved_voice_bank()
+            assert bank is not None,'Approved narration bank is missing'
+            files=set()
+            for message in bank['lines']:
+                recording,approved=_recording_path(game,message)
+                assert approved and recording is not None,message
+                files.add(recording)
+            for item in bank['patterns']:
+                files.add(Path(__file__).with_name('audio')/'adeka_f5'/item['file'])
+            for recording in files:
+                with wave.open(str(recording),'rb') as audio:
+                    assert audio.getframerate()==24000 and audio.getnframes()>0
+            (folder/'package_check.json').write_text(json.dumps({'passed':True,'floors':results,'approved_voice_files':len(files)},indent=2),encoding='utf-8')
             game.destroy()
             return
         game.run()

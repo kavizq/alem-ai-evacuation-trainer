@@ -23,7 +23,7 @@ Press Space to leave the opening lecture. Move with WASD and look with the mouse
 
 Follow the cyan line on the floor and the actual floor plan at the upper right. Press E near the selected stair entrance. Repeat on the next floor. On floor 1, the exits lead to the plaza, the original closing cards and the dedication to Dilnura Ali. Press Enter after completion to view the training results.
 
-Original recorded ADEKA lines play through Panda3D on Windows as well as other platforms. New messages use an installed offline system voice where available (English Zira is preferred on Windows). M mutes speech and game sound. Original recordings and the wording of all three closing cards are preserved; new system speech may use a different voice.
+ADEKA uses local synthetic narration in the voice approved by Amir, generated with F5-TTS and played through Panda3D. The game does not load the speech model or use an online service. Dynamic route messages speak the selected side and direct the player to the displayed distance and risk. An unknown future message remains subtitled instead of switching voices. M mutes speech and game sound. All three closing cards retain their original wording. Voice credits are in audio/adeka_f5/CREDITS.txt; the inherited recordings remain available for compatibility when the new bank is absent.
 
 - E also reads the two optional amber information stations.
 - U recalculates the route from the current position. In the smoke scenario on floor 2, the first U after route selection closes that planned exit and demonstrates replanning.
