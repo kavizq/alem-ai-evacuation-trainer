@@ -1,0 +1,15 @@
+Synthetic narration for the noncommercial Alem AI course project.
+
+Voice reference supplied by Amir; he approved the F5-TTS preview.
+Speech generated locally using F5-TTS v1 Base with the Vocos decoder.
+The game plays WAV files and does not run a speech model or send voice data online.
+
+F5-TTS by SWivid and contributors:
+https://github.com/SWivid/F5-TTS
+Model weights: SWivid/F5-TTS, F5TTS_v1_Base.
+The model authors state that pretrained weights use the CC-BY-NC license.
+Vocos: https://huggingface.co/charactr/vocos-mel-24khz
+
+Some spoken cues are concise versions of the displayed text. Numeric route
+values remain on screen; route speech names the side and refers to those values.
+All original closing-card text and the Dilnura Ali dedication are unchanged.
