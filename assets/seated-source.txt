@@ -1,0 +1,3 @@
+Innerscene, adapted from MakeHuman/MPFB assets. CC0.
+https://www.innerscene.com/tools/library/3d-parts/avery-riley-morgan-rowan-and-nora-3d-person-audience-row-of--da50868b
+Audience.glb is the original. SeatedStudents.glb contains five individual static meshes with the supplied textures and seated poses.
