@@ -6,6 +6,11 @@ import speech
 
 
 class SpeechTests(TestCase):
+    def setUp(self):
+        bank = patch('speech._approved_voice_bank', return_value=None)
+        bank.start()
+        self.addCleanup(bank.stop)
+
     def game(self, muted=False):
         return SimpleNamespace(voice=None, voice_sound=None, voice_muted=muted,
                                voice_manifest={}, loader=SimpleNamespace(loadSfx=Mock()))
@@ -46,3 +51,27 @@ class SpeechTests(TestCase):
             process.stdin.close.assert_called_once()
             self.assertNotIn(message,' '.join(start.call_args.args[0]))
             self.assertEqual(start.call_args.kwargs['creationflags'],getattr(speech.subprocess,'CREATE_NO_WINDOW',0))
+
+
+class ApprovedVoiceTests(TestCase):
+    def test_dynamic_route_uses_the_chosen_voice_without_speaking_wrong_numbers(self):
+        import re
+        pattern = re.compile(r'Left route selected, [0-9]+ m\. Modeled blockage risk [0-9]+%\. Follow the cyan guide\. U checks for a route update\.')
+        entry = {'file':'route.wav'}
+        bank = {'lines':{}, 'compiled_patterns':[(pattern,entry)]}
+        game = SimpleNamespace(voice=None,voice_sound=None,voice_muted=False,
+                               voice_manifest={},loader=SimpleNamespace(loadSfx=Mock()))
+        with patch('speech._approved_voice_bank',return_value=bank), patch('speech.Path.is_file',return_value=True), patch('speech.ConfigVariableString') as config, patch('speech.subprocess.Popen') as process:
+            config.return_value.getValue.return_value='p3openal_audio'
+            line='Left route selected, 27 m. Modeled blockage risk 50%. Follow the cyan guide. U checks for a route update.'
+            self.assertEqual(speech.speak(game,line),'recording')
+            process.assert_not_called()
+            game.loader.loadSfx.return_value.play.assert_called_once()
+
+    def test_unknown_line_does_not_switch_to_a_different_system_voice(self):
+        game = SimpleNamespace(voice=None,voice_sound=None,voice_muted=False,
+                               voice_manifest={},loader=SimpleNamespace(loadSfx=Mock()))
+        with patch('speech._approved_voice_bank',return_value={'lines':{},'compiled_patterns':[]}), patch('speech.ConfigVariableString') as config, patch('speech.subprocess.Popen') as process:
+            config.return_value.getValue.return_value='p3openal_audio'
+            self.assertEqual(speech.speak(game,'Future message without a recording.'),'text')
+            process.assert_not_called()
