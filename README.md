@@ -21,7 +21,9 @@ Run from a graphical desktop. The application needs an OpenGL-capable display. T
 
 Press Space to leave the opening lecture. Move with WASD and look with the mouse or arrows. Find the cyan route terminal, press E, then press 1 to accept ADEKA's route or 2 to choose the other available exit. Press 3 inside the panel to inspect the AI calculations. Q closes the panel.
 
-Follow the cyan line on the floor and the actual floor plan at the upper right. Press E near the selected stair entrance. Repeat on the next floor. On floor 1, the exits lead to the plaza and a results summary.
+Follow the cyan line on the floor and the actual floor plan at the upper right. Press E near the selected stair entrance. Repeat on the next floor. On floor 1, the exits lead to the plaza, the original closing cards and the dedication to Dilnura Ali. Press Enter after completion to view the training results.
+
+Original recorded ADEKA lines play through Panda3D on Windows as well as other platforms. New messages use an installed offline system voice where available (English Zira is preferred on Windows). M mutes speech and game sound. Original recordings and the wording of all three closing cards are preserved; new system speech may use a different voice.
 
 - E also reads the two optional amber information stations.
 - U recalculates the route from the current position. In the smoke scenario on floor 2, the first U after route selection closes that planned exit and demonstrates replanning.

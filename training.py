@@ -32,24 +32,21 @@ class Trainer(Campaign):
         self.exposure_active = False
         self.map_age = 0.
         self.review = False
+        self.results_shown = False
         super().__init__()
         self.play_controls = 'WASD move | Mouse/arrows look | E inspect | 1/2 choose route | 3 AI details | U update | F5 scenario | R new'
         self.ui_controls.setText(self.play_controls)
         self.accept('f5', self.next_scenario)
+        self.accept('enter', self.open_results)
         self.physical_actions['u'] = self.trigger_update
         self.ui_title.setText('ALEM AI  /  EVACUATION TRAINER')
         self.ui_title.setScale(.039)
-        self.say('Training exercise. Possible smoke near a technical room. Elevators are offline. Press SPACE to begin.')
+        self.credits.footer.setText('R  /  Play again     ENTER  /  Training results')
 
     def say(self, message):
-        if message.startswith('Welcome to'):
-            message = 'Training exercise in Qairu. Practise choosing a route with uncertain sensor readings. SPACE begins.'
-        elif message.startswith('Technical malfunction'):
-            message = 'Training alarm: possible smoke near a technical room. Elevators are offline. Find the cyan route terminal.'
-        elif message.startswith('A star compares') or message.startswith('Bayesian inference updates'):
-            message = 'ADEKA combines A* route search, Bayesian sensor inference and a sequential MDP decision model.'
-        self.message = 'ADEKA: '+message
-        self.update_hud()
+        if message.startswith('Technical malfunction.'):
+            message = 'Exercise alarm: possible smoke. Elevators are offline. Lead the group from floor four to the plaza using the stairs. At each cyan terminal, compare routes and choose an exit.'
+        super().say(message)
 
     def make_ui(self):
         super().make_ui()
@@ -93,7 +90,6 @@ class Trainer(Campaign):
         self.elapsed = 0.
         self.session.elapsed_s = 0.
         self.refresh_map()
-        self.say('Exercise alarm: possible smoke. Elevators are offline. Visit the cyan terminal for a route, then lead the group downstairs.')
 
     def walk_speed(self):
         return WALK_SPEED
@@ -169,8 +165,17 @@ class Trainer(Campaign):
                     return
                 if self.decision is None:
                     self.calculate()
+                # A first calculation may close this exit in the blocked
+                # scenario. Recheck after calculating, before recording it.
+                if side in self.closed_sides:
+                    self.say('This exit has become unavailable. Check the cyan terminal or press U to find another route.')
+                    self.save()
+                    return
                 if not self.decision.get('available'):
                     self.say('No route available. Move back into the hall and rescan.')
+                    return
+                if side not in self.decision.get('lengths', {}):
+                    self.say('There is no current route for this exit. Press U to recalculate or inspect the cyan terminal.')
                     return
                 if self.selected_side != side:
                     self.session.unguided_exits += 1
@@ -375,8 +380,11 @@ class Trainer(Campaign):
 
     def tick(self,task):
         if self.ending:
-            self.ending_time += min(self.clock.getDt(),.06)
-            return Task.cont
+            if self.results_shown:
+                self.ending_time += min(self.clock.getDt(),.06)
+                return Task.cont
+            # Preserve the original exterior camera, music and all three cards.
+            return super().tick(task)
         before = tuple(self.position[:2])
         previous_floor = self.floor
         active = self.scene_time >= LECTURE_DURATION and not self.ending
@@ -458,6 +466,7 @@ class Trainer(Campaign):
         self.say('Training checkpoint restored. Continue along the cyan route.')
 
     def reset_mission(self):
+        self.results_shown=False
         self.session=TrainingSession(self.session.scenario)
         self.credits.hide()
         self.set_stair_hud(True)
@@ -477,6 +486,9 @@ class Trainer(Campaign):
         if not success:
             self.say('Training continues. Recheck the route at the terminal.')
             return
+        self.results_shown=False
+        self.overlay.hide()
+        self.overlay_text.hide()
         super().end(True)
         report=self.session.to_dict()
         report['completed']=True
@@ -485,9 +497,13 @@ class Trainer(Campaign):
             (self.data_dir/'last_result.json').write_text(json.dumps(report,indent=2),encoding='utf-8')
         except OSError:
             self.message='ADEKA: Exercise completed. Results could not be written; the summary remains on screen.'
-        self.show_results()
+
+    def open_results(self):
+        if self.ending == 'success':
+            self.show_results()
 
     def show_results(self):
+        self.results_shown=True
         self.credits.hide()
         self.overlay.setZ(.78);self.overlay.setSz(1.5);self.overlay.show()
         final_by_floor={d['floor']:d for d in self.session.decisions}

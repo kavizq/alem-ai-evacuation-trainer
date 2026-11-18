@@ -8,6 +8,7 @@ import wave
 import struct
 import textwrap
 from platform_paths import panda_path
+from speech import speak, stop_speech
 from navigation import walking_path
 from credits import Credits
 from building_repairs import elevator_lobby, lower_storeys
@@ -258,8 +259,8 @@ class Campaign(Foundation):
         active=self.sfxManagerList[0].getActive()
         self.sfxManagerList[0].setActive(not active)
         self.voice_muted=active
-        if self.voice and self.voice.poll() is None:
-            self.voice.terminate()
+        if active:
+            stop_speech(self)
 
     def window_changed(self, window):
         if not hasattr(window, 'getProperties'):
@@ -514,19 +515,12 @@ class Campaign(Foundation):
 
     def say(self, message):
         self.message='ADEKA: '+message
-        if self.voice and self.voice.poll() is None:
-            self.voice.terminate()
-        if not getattr(self, 'voice_muted', False):
-            clips = Path(__file__).with_name('audio') / 'adeka_en'
-            filename = self.voice_manifest.get(message)
-            recording = clips / filename if filename else None
-            if recording and recording.is_file() and shutil.which('afplay'):
-                self.voice = subprocess.Popen(
-                    ['afplay', str(recording)], stdout=subprocess.DEVNULL,
-                    stderr=subprocess.DEVNULL)
-            else:
-                print('ADEKA recording missing:', message)
+        self.last_speech_backend = speak(self, message)
         self.update_hud()
+
+    def destroy(self):
+        stop_speech(self)
+        super().destroy()
 
     def make_ui(self):
         super().make_ui()

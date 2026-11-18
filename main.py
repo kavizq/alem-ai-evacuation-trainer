@@ -4,6 +4,7 @@ from pathlib import Path
 import faulthandler
 import sys
 import json
+import traceback
 from panda3d.core import loadPrcFileData
 
 
@@ -50,4 +51,14 @@ def main():
 
 
 if __name__ == '__main__':
-    main()
+    try:
+        main()
+    except Exception:
+        folder=(Path(sys.executable).parent if getattr(sys,'frozen',False) else Path(__file__).parent)/'user_data'
+        try:
+            folder.mkdir(exist_ok=True)
+            with (folder/'runtime_errors.log').open('a',encoding='utf-8') as log:
+                traceback.print_exc(file=log)
+        except OSError:
+            pass
+        raise

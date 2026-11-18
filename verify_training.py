@@ -12,6 +12,7 @@ loadPrcFileData('', 'window-type offscreen\naudio-library-name null')
 from training import Trainer
 from navigation import walking_path
 from platform_paths import panda_path
+from credits import CARDS
 
 
 def run():
@@ -82,7 +83,18 @@ def run():
                     assert game.ending=='success'
                     assert len(game.session.floors_completed)==4
                     assert json.loads((Path(folder)/'last_result.json').read_text())['completed']
-                    game.tick(None)
+                    assert not game.results_shown
+                    # Preserve the exact original closing cards and dedication.
+                    for index,when in enumerate((12.,20.,31.)):
+                        game.ending_time=when
+                        game.tick(None)
+                        assert game.credits.started
+                        assert game.credits.text.getText()==CARDS[index]
+                        if scenario=='smoke':
+                            for _ in range(3):game.graphicsEngine.renderFrame()
+                            game.win.saveScreenshot(panda_path(output/f'trainer-credit-{index+1}.png'))
+                    game.messenger.send('enter')
+                    assert game.results_shown and not game.credits.started
                     if scenario=='smoke':
                         for _ in range(3):game.graphicsEngine.renderFrame()
                         game.win.saveScreenshot(panda_path(output/'results.png'))
