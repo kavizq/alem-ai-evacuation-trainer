@@ -63,12 +63,12 @@ The integration check opens an offscreen graphics buffer and drives the real mov
 
 ## Submission materials
 
-- `docs/TECHNICAL_REPORT.md` and its HTML reading version
+- `docs/TECHNICAL_REPORT.md` and its PDF reading version
 - `docs/AI_USAGE_DECLARATION.md`
 - `docs/TEAM_CONTRIBUTIONS.md`
 - `docs/DEFENSE_RU.md`
 - `docs/DEMO_SCRIPT.md`
-- A six-slide presentation and a narrated-caption demo video in the delivered submission bundle
+- A six-slide presentation and a captioned demo video in the delivered submission bundle
 
 ## Scope and ownership
 
