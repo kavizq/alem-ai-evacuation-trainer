@@ -13,7 +13,7 @@ Sequence: training problem and opening classroom; floor-4 route comparison; Baye
 3. Press 1 and follow the cyan guide. Show that the mini-map matches the walkable geometry. Press E near the chosen stairs.
 4. On floor 3, point out NO ALERT and the lower posterior. Explain that a lower probability need not change the preferred exit when route lengths are similar.
 5. On floor 2, select the route and press U. Show that the selected exit becomes unavailable, disappears from the available actions and receives a replacement route.
-6. Reach floor 1 and the plaza. Explain time, distance, sensor-zone entries and modeled risk. A summed risk score is not an overall probability of harm.
+6. Reach floor 1 and the plaza. The original closing cards and dedication remain available. Press Enter for the training summary and explain time, distance, sensor-zone entries and modeled risk. A summed risk score is not an overall probability of harm.
 
 For a shorter defense, demonstrate the first route and the floor-2 update using a rehearsed checkpoint created during your own run. Avoid presenting a restored checkpoint as a complete live traversal.
 
