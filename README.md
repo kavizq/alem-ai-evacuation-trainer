@@ -1,37 +1,55 @@
 # Alem AI Evacuation Trainer
 
-A four-floor local 3D training application for the AI Fundamentals project. Practise choosing an evacuation route when an elevator is unavailable and a sensor report is uncertain. ADEKA combines collision-aware A* search, Bayesian inference and MDP value iteration. The environment and sensor assumptions are fictional.
+A local 3D game for practising evacuation route choices, built for the AI Fundamentals course. ADEKA combines A* search, Bayesian inference and MDP planning to recommend an exit, show its route and explain the decision.
 
-## Quick start
+> Короче, ты на четвёртом этаже, срабатывает учебная тревога, а лифты недоступны. Нужно выбрать лестницу и вывести группу, ADEKA помогает сравнить пути и показывает, куда идти. Если выбранный выход закрывается, маршрут можно пересчитать, а в терминале посмотреть, как получилась рекомендация.
 
-The separate Windows portable ZIP in the submission opens with `AlemAITrainer.exe` and includes its runtime. Extract the entire folder and keep `_internal` beside the executable. The source setup below is for running or editing the Python project.
+## Running the game
 
-Install Python 3.10 or newer. On Windows, double-click `START_WINDOWS.cmd`. On macOS or Linux, run `sh start_macos_linux.sh`. The first launch downloads Panda3D into an isolated `.venv`; later launches work offline. Allow a short initial loading period for the original 3D models.
+The Windows portable build includes Python and Panda3D, so extracting the whole archive and opening `AlemAITrainer.exe` is enough. Keep the `_internal` folder beside the executable and allow the models a moment to load.
 
-Alternatively:
+To run from source, install Python 3.10 or newer and open `START_WINDOWS.cmd` on Windows, or run the following command from the project folder on macOS or Linux:
+
+```sh
+sh start_macos_linux.sh
+```
+
+The launcher creates a local `.venv` and installs Panda3D on the first run, after which the game works offline. You can also launch it directly:
 
 ```sh
 python -m pip install -r requirements.txt
 python main.py
 ```
 
-Run from a graphical desktop. The application needs an OpenGL-capable display. The updated version has been exercised on Windows with Python 3.12 and Panda3D 1.10.16. The cross-platform launch scripts are supplied, but the revised game has not been run on macOS or Linux in this session.
+The revised game has been tested on Windows with Python 3.12 and Panda3D 1.10.16, while the macOS and Linux launchers are provided without a confirmed run on those systems. A graphical desktop with an OpenGL-capable display is required.
 
-## Play
+## Playing a round
 
-Press Space to leave the opening lecture. Move with WASD and look with the mouse or arrows. Find the cyan route terminal, press E, then press 1 to accept ADEKA's route or 2 to choose the other available exit. Press 3 inside the panel to inspect the AI calculations. Q closes the panel.
+Press **Space** to finish the opening scene, then use **WASD** to move and the mouse or arrow keys to look around. At the cyan terminal, **E** opens the route comparison, **1** accepts ADEKA's recommendation, **2** selects another available exit, and **3** explains the calculations. **Q** closes the panel.
 
-Follow the cyan line on the floor and the actual floor plan at the upper right. Press E near the selected stair entrance. Repeat on the next floor. On floor 1, the exits lead to the plaza, the original closing cards and the dedication to Dilnura Ali. Press Enter after completion to view the training results.
+Once you choose an exit, a cyan line appears on the floor and the map shows its route. Follow it to the stairs and press **E**, repeating the process on each floor until you reach the plaza. The original closing cards and dedication remain at the end, followed by the training results when you press **Enter**.
 
-ADEKA uses local synthetic narration in the voice approved by Amir, generated with F5-TTS and played through Panda3D. The game does not load the speech model or use an online service. Dynamic route messages speak the selected side and direct the player to the displayed distance and risk. An unknown future message remains subtitled instead of switching voices. M mutes speech and game sound. All three closing cards retain their original wording. Voice credits are in audio/adeka_f5/CREDITS.txt; the inherited recordings remain available for compatibility when the new bank is absent.
+| Key | Action |
+|---|---|
+| E | Inspect a terminal or information station, or use nearby stairs |
+| 1 / 2 | Accept the recommendation or choose the other available exit |
+| 3 | Show the AI explanation inside the terminal |
+| U | Recalculate the route from the current position |
+| F5 | Switch scenario and start a fresh exercise |
+| C | Restore the saved training checkpoint |
+| R | Restart the current scenario |
+| H | Show a hint |
+| M | Mute or unmute narration and game sound |
+| Escape | Release the mouse, then click the game to capture it again |
+| Shift | Move faster |
 
-- E also reads the two optional amber information stations.
-- U recalculates the route from the current position. In the smoke scenario on floor 2, the first U after route selection closes that planned exit and demonstrates replanning.
-- F5 cycles the three scenarios and starts a fresh exercise.
-- C restores a training checkpoint. R starts the current scenario again.
-- H gives guidance. Escape releases the mouse; clicking the game captures it again. Shift increases movement speed.
+## Where the AI helps
 
-Routes are recommendations. Incorrect choices never lock every exit. An unavailable exit remains visibly marked and cannot be used. Students follow the selected exit. Results count the player's actions; NPC positions do not determine completion.
+The route terminal is where the three topics meet, A* finds paths around the level's obstacles, Bayes updates a blockage belief from the sensor reading, and the MDP compares the possible consequences before recommending an exit. Choosing the recommendation turns that result into the cyan floor guide.
+
+For example, the recorded floor-4 smoke case has a 25 m left route and a 27 m right route. The model assigns the suspect left approach a 50% blockage probability after an alert, so the policy recommends the slightly longer right route. Route lengths can change with the player's position.
+
+For the clearest replanning example, use the `smoke` scenario, choose a route on floor 2 and press **U**. The exercise closes that selected exit and ADEKA calculates a new route to an available one. On other floors, **U** updates the recommendation from your current position.
 
 ## Scenarios
 
@@ -42,36 +60,42 @@ python main.py --scenario blocked
 python main.py --legacy
 ```
 
-`clear` supplies NO ALERT on all floors. `smoke` supplies ALERT except on floor 3 and supports the live floor-2 closure. `blocked` removes the initially shortest exit. These are deterministic scenarios for reproducible classroom demonstrations. A repeated scan uses the same current observation, rather than treating the same reading as independent new evidence.
+`clear` gives NO ALERT on every floor, `smoke` gives ALERT except on floor 3 and includes the floor-2 closure, while `blocked` removes the initially shortest exit. The scenarios use fixed inputs so a demonstration can be repeated, and reopening the same sensor reading does not count as new independent evidence.
 
-`--legacy` preserves Adilzhan's original quiz campaign. Its educational 6x6 grid and three-error lockdown belong only to that original mode. The new default trainer uses actual movement collisions and has no error lockdown.
+The default trainer lets the player choose a route without a quiz, while `--legacy` opens Adilzhan's original campaign with terminal questions, its 6x6 activity grid and three-error lockdown. Terminals remain optional in the trainer, with unguided exits recorded in the results. A closed exit stays unavailable, and character following provides a visual guide while player progression determines completion.
 
-## Implementation
+## How the algorithms connect
 
-`navigation.py` implements four-neighbour A* at 0.5 m spacing using the same `can_walk` predicate as player movement. It finds candidate routes to the two real game gates. `training_core.py` updates a 20% blockage prior using an 80% sensitivity and a 20% false-alarm rate. Its finite discounted MDP compares routes using their measured lengths, modeled walking speed and a blocked-attempt penalty. `training.py` connects the decision to floor guidance, student destinations and metrics.
+`navigation.py` runs four-neighbour A* on a 0.5 m grid, using the same `can_walk` checks as player movement. It returns candidate paths and their lengths, which `training_core.py` combines with the Bayesian update from `ai_core.py`.
 
-The MDP has a junction, an approach state per available exit and a terminal exit state. A suspect approach succeeds or returns to the junction with a penalty. Synchronous value iteration solves the Bellman equation with discount 0.98. This is planning with a supplied transition model, not reinforcement learning from collected data. The older `ai_core.py` remains for legacy compatibility.
+The sensor model uses a 20% blockage prior, 80% sensitivity and a 20% false-alarm rate. Those assumptions give a 50% posterior after ALERT and about 5.88% after NO ALERT, supplying the uncertain approach's transition probabilities.
 
-## Verification
+The MDP represents a junction, an approach to each available exit and a terminal exit state. A blocked attempt can return to the junction with a 90-unit penalty, and value iteration evaluates the resulting sequence with a 0.98 discount. The model plans with supplied probabilities rather than learning them from player experience, while `training.py` connects the selected action to the map, floor guide, characters and session results.
+
+## Sound and saves
+
+Narration plays from local audio files generated with F5-TTS using Amir's selected voice reference, so the game does not load a speech model or contact an online service. Route speech names the selected side and refers to the distance and risk displayed on screen, while an unknown cue remains subtitled. Model and voice attribution are in [audio/adeka_f5/CREDITS.txt](audio/adeka_f5/CREDITS.txt).
+
+The current checkpoint is stored in `user_data/training_save.json`, and the latest completed exercise appears in `user_data/last_result.json`. Personal saves and runtime logs stay outside Git.
+
+## Checks and project notes
 
 ```sh
 python -m unittest discover -s tests -v
 python verify_training.py
 ```
 
-The integration check opens an offscreen graphics buffer and drives the real movement loop through all four floors in all three scenarios. It checks collision-safe paths, the live closure, checkpoint restoration, invalid-save handling and the final summary. It writes screenshots and `verification/training_checks.json`. Graphical checks require an available rendering driver even when the window is offscreen.
+The integration check drives the regular movement loop through four floors in each scenario, checking collisions, exit closure, explanations, checkpoint restoration and the final summary. It writes screenshots and `verification/training_checks.json`, using a graphics driver even when rendering offscreen. The latest recorded gameplay checks include 28 unit tests and 24 door-without-terminal cases, with details in [verification/VALIDATION.md](verification/VALIDATION.md).
 
-`user_data/training_save.json` stores an active checkpoint. `user_data/last_result.json` stores the most recent completed exercise. These local files and personal runtime logs are excluded from Git.
+The environment and sensor parameters are fictional, and the prototype has no measured learning effect, smoke propagation or validated crowd simulation. Its results describe decisions within the exercise, with summed risk scores serving as model comparisons rather than incident probabilities.
 
-## Submission materials
+## Documents
 
-- `docs/TECHNICAL_REPORT.md` and its PDF reading version
-- `docs/AI_USAGE_DECLARATION.md`
-- `docs/TEAM_CONTRIBUTIONS.md`
-- `docs/DEFENSE_RU.md`
-- `docs/DEMO_SCRIPT.md`
-- A six-slide presentation and a captioned demo video in the delivered submission bundle
+- [Technical report](docs/TECHNICAL_REPORT.md), with its [PDF version](docs/TECHNICAL_REPORT.pdf)
+- [AI Usage Declaration](docs/AI_USAGE_DECLARATION.md)
+- [Team Contribution Statement](docs/TEAM_CONTRIBUTIONS.md)
+- [Seven-slide presentation](docs/PRESENTATION_SUBMISSION.pptx)
+- [Demo script](docs/DEMO_SCRIPT.md) and [Russian defense notes](docs/DEFENSE_RU.md)
+- [Quick start in Russian](START_HERE_RU.md)
 
-## Scope and ownership
-
-Adilzhan created the supplied baseline project, according to Amir. Amir initiated and directed this revision. Codex provided substantial implementation, testing and writing assistance; see the declaration. The original external model attribution is preserved in `assets/seated-source.txt`. No new blanket license is asserted over the inherited assets. This is a classroom prototype, without a surveyed Alem AI floor plan, real sensor calibration, smoke physics, crowd validation or measured learning outcomes.
+Adilzhan developed the original game, and Amir directed its extension into an evacuation trainer. Tools used for the later revision are described in the AI Usage Declaration, while the inherited model attribution remains in [assets/seated-source.txt](assets/seated-source.txt).
