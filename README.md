@@ -6,7 +6,7 @@ A local 3D game for practising evacuation route choices, built for the AI Fundam
 
 ## Running the game
 
-The Windows portable build includes Python and Panda3D, so extracting the whole archive and opening `AlemAITrainer.exe` is enough. Keep the `_internal` folder beside the executable and allow the models a moment to load.
+For the Windows build, extract `AlemAI_Windows.zip` and open `AlemAITrainer.exe`. Python and Panda3D are included, and the `_internal` folder stays beside the application. A desktop shortcut can point directly to that EXE, so the game is one double-click away.
 
 To run from source, install Python 3.10 or newer and open `START_WINDOWS.cmd` on Windows, or run the following command from the project folder on macOS or Linux:
 
@@ -81,8 +81,8 @@ The current checkpoint is stored in `user_data/training_save.json`, and the late
 ## Checks and project notes
 
 ```sh
-python -m unittest discover -s tests -v
-python verify_training.py
+python check.py
+python check.py --full
 ```
 
 The integration check drives the regular movement loop through four floors in each scenario, checking collisions, exit closure, explanations, checkpoint restoration and the final summary. It writes screenshots and `verification/training_checks.json`, using a graphics driver even when rendering offscreen. The latest recorded gameplay checks include 28 unit tests and 24 door-without-terminal cases, with details in [verification/VALIDATION.md](verification/VALIDATION.md).
@@ -99,3 +99,15 @@ The environment and sensor parameters are fictional, and the prototype has no me
 - [Quick start in Russian](START_HERE_RU.md)
 
 Adilzhan developed the original game, and Amir directed its extension into an evacuation trainer. Tools used for the later revision are described in the AI Usage Declaration, while the inherited model attribution remains in [assets/seated-source.txt](assets/seated-source.txt).
+
+## Project folders
+
+The root contains the game modules and launchers, `checks/` holds the integration tools, and `tests/` contains the unit suite. Materials and explanations are in `docs/`, resources are in `assets/` and `audio/`, while generated builds and personal saves stay outside Git.
+
+To build the Windows application from source, install PyInstaller and run:
+
+```sh
+python -m PyInstaller --distpath build/windows --workpath build/temp packaging/AlemAITrainer.spec
+```
+
+The executable will appear in `build/windows/AlemAITrainer/`, alongside its runtime folder.

@@ -23,3 +23,7 @@ The repository's captioned MP4 is 150 seconds long, at 1152 by 720 pixels and 15
 ## Coverage
 
 These checks establish functionality within the supplied scenarios, while participant learning, macOS and Linux runtime behavior, native PowerPoint playback and real building conditions remain outside the recorded evaluation.
+
+## Cleanup verification, 21 November 2026
+
+After grouping the check tools, `python check.py --full` passed all 28 unit tests, all four floors in each of the three scenarios, checkpoint and exit-closure checks, and all 66 narration resources through Panda3D. The installed Windows EXE passed its four-floor packaged check with exit code zero, with the player's existing checkpoint and results restored byte-for-byte afterwards.

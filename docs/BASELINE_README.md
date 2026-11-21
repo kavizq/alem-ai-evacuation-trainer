@@ -28,12 +28,12 @@ English ADEKA speech uses the macOS Samantha voice through `say`. Subtitles rema
 ## Verification
 
 ```sh
-.venv/bin/python -m unittest discover -s tests -v
-.venv/bin/python -m compileall -q main.py campaign.py verify_campaign.py verify_walk.py
-.venv/bin/python verify_campaign.py
-.venv/bin/python verify_walk.py
-.venv/bin/python verify_runtime.py
-.venv/bin/python verify_playthrough.py
+.venv/bin/python check.py
+.venv/bin/python -m compileall -q main.py campaign.py checks/legacy/verify_campaign.py checks/legacy/verify_walk.py
+.venv/bin/python -m checks.legacy.verify_campaign
+.venv/bin/python -m checks.legacy.verify_walk
+.venv/bin/python Archive/Historical_checks/verify_runtime.py
+.venv/bin/python -m checks.legacy.verify_playthrough
 ```
 
 The four verification scripts create real graphical windows and use isolated temporary saves. They verify floor progression, both outcomes, checkpoint restoration and collision-safe routes. Screenshots are written to `verification/`. These checks automate interactions and do not establish a human completion time. The design target is 8–12 minutes including exploration, reading and problem solving.
@@ -52,4 +52,4 @@ Verified on macOS: eight unit tests; movement and keyboard camera; opening lectu
 
 ## Sequential puzzle decisions
 
-Each floor now has three decisions. Correct intermediate answers are saved immediately. Closing and reopening a terminal retains the current step. Old checkpoints remain supported. Three accumulated wrong answers still trigger lockdown. Run `verify_puzzle_progress.py` for checkpoint compatibility and `verify_playthrough.py` for the complete movement-driven route.
+Each floor now has three decisions. Correct intermediate answers are saved immediately. Closing and reopening a terminal retains the current step. Old checkpoints remain supported. Three accumulated wrong answers still trigger lockdown. Run `checks/legacy/verify_puzzle_progress.py` for checkpoint compatibility and `checks/legacy/verify_playthrough.py` for the complete movement-driven route.

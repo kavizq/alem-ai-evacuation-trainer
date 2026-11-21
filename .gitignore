@@ -8,3 +8,6 @@ verification/*.png
 verification/*.log
 .DS_Store
 *.mp4
+build/
+dist/
+*.log
